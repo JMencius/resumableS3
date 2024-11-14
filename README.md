@@ -25,7 +25,7 @@ Options:
   -o, --output TEXT      Path to output  [required]
   -t, --temp TEXT        Path to the record file, default : download_progress.txt in output directory
   -w, --workers INTEGER  Max workers for download, default: max CPU threads in your system
-  --chunk-size INTEGER   Chunk size for parallel download in MB
+  --chunk-size INTEGER   Chunk size for parallel download in MB [default: 25]
   --id TEXT              AWS access key id, default: None (anonymous)
   --key TEXT             AWS secert access key, default: None (anonymous)
   --region-name TEXT     AWS region name, default: None
