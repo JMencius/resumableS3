@@ -1,8 +1,8 @@
 # resumableS3 (rs3)
 ## To solve what problem
-When using S3 cp to download a very large file, original [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) may fail and just report an error `("Connection broken: ConnectionResetError(104, 'Connection reset by peer')", ConnectionResetError(104, 'Connection reset by peer'))`, without writing the file to output, **which means the donwload of original AWS S3 is not resumable**.
+When using S3 cp to download a very large file, original [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) may fail and just report an error `("Connection broken: ConnectionResetError(104, 'Connection reset by peer')", ConnectionResetError(104, 'Connection reset by peer'))`, without writing the file to output, **which means the download of original AWS S3 is not resumable**.
 
-ResumableS3 (rs3) is a Python based download binary, of which is meant to be a resumable download program. It is also multi-threaded, which means you shall get similar download speed as the original AWS S3.
+ResumableS3 (rs3) is a Python based download utility, of which is meant to be a resumable download program. It is also multi-threaded, which means you shall get similar download speed as the original AWS S3.
 
 
 ## Installation
@@ -24,7 +24,7 @@ Options:
   -i, --input TEXT       S3 link, must be a specific downloadable object [required]
   -o, --output TEXT      Path to output  [required]
   -t, --temp TEXT        Path to the record file, default : download_progress.txt in output directory
-  -w, --workers INTEGER  Max workder for download, default: max CPU threads in your system
+  -w, --workers INTEGER  Max workers for download, default: max CPU threads in your system
   --chunk-size INTEGER   Chunk size for parallel download in MB
   --id TEXT              AWS access key id, default: None (anonymous)
   --key TEXT             AWS secert access key, default: None (anonymous)
@@ -42,7 +42,7 @@ rs3 \
 
 
 ## How to resume download
-When you use `rs3` to download file, you may encounter bad Internet connection for several chunck during AWS s3 download (such as the example below), but it is totally fine.
+When you use `rs3` to download file, you may encounter bad Internet connection for several chunk during `rs3` download (such as the example below), but it is totally fine.
 ```
 Downloading sectors:  85%|█████████████████████████████████████████████████████████████████████████████████▏              | 36779/43519 [27:27:54<7:41:26,  4.11s/sector]
 An error occurred while downloading chunk 964585062400-964611276799: An error occurred while reading from response stream: ('Connection broken: IncompleteRead(18505070 bytes read, 7709330 more expected)', IncompleteRead(18505070 bytes read, 7709330 more expected))
