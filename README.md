@@ -13,7 +13,7 @@ Better to install in a new envs.
 ## Usage
 Only two parameter is mandatory: `-i/--input` and `-o/--output`
 ```
-Usage: python s3r.py [OPTIONS]
+Usage: rs3 [OPTIONS]
 
 Options:
   -i, --input TEXT       S3 link, must be a specific downloadable object [required]
@@ -30,7 +30,7 @@ Options:
 
 ## Example
 ```
-python s3r.py \
+rs3 \
 -i s3://human-pangenomics/working/HPRC_PLUS/HG01109/assemblies/year1_freeze_assembly_v2/HG01109.maternal.f1_assembly_v2.fa.gz \
 -o ./output 
 ```
