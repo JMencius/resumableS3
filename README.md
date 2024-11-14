@@ -6,7 +6,7 @@ ResumableS3 (rs3) is a Python based download binary, of which is meant to be a r
 
 
 ## Installation
-Use pip to install, <mark> you should have python >= 3.8 installation first </mark>
+Use pip to install, <mark> you should have Python >= 3.8 installation first </mark>
 ```bash
 conda create -n rs3 python=3.8 -y;
 conda activate rs3;
@@ -59,7 +59,19 @@ Downloading sectors: 100%|██████████████████
 File downloaded to ./HG02723/HG02723_3.fast5.tar.gz
 
 ## Validation
+`rs3` and `s3` is used to download the same file: `s3://human-pangenomics/working/HPRC_PLUS/HG01109/assemblies/year1_freeze_assembly_v2/HG01109.maternal.f1_assembly_v2.fa.gz` with the following command:
+```bash
+# resumable S3
+rs3 -i s3://human-pangenomics/working/HPRC_PLUS/HG01109/assemblies/year1_freeze_assembly_v2/HG01109.maternal.f1_assembly_v2.fa.gz -o ./rs3;
 
+# AWS S3
+aws s3 --no-sign-request cp s3://human-pangenomics/working/HPRC_PLUS/HG01109/assemblies/year1_freeze_assembly_v2/HG01109.maternal.f1_assembly_v2.fa.gz ./s3;
+```
+The downloaded files are compared through `md5sum`, which is exactly the same.
+```
+f2d8b690d0adeaf28ed3221514f30357  rs3/HG01109.maternal.f1_assembly_v2.fa.gz
+f2d8b690d0adeaf28ed3221514f30357  s3/HG01109.maternal.f1_assembly_v2.fa.gz
+```
 
 
 ## Citation
