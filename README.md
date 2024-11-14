@@ -1,6 +1,9 @@
-# resumableS3
-## Introduction
-This software is mainly for resumable S3 cp download. When using S3 cp to download a very large file, original [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) may fail and just report an error `("Connection broken: ConnectionResetError(104, 'Connection reset by peer')", ConnectionResetError(104, 'Connection reset by peer'))`, without writing the file to output.
+# resumableS3 (rs3)
+## To solve what problem
+When using S3 cp to download a very large file, original [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) may fail and just report an error `("Connection broken: ConnectionResetError(104, 'Connection reset by peer')", ConnectionResetError(104, 'Connection reset by peer'))`, without writing the file to output, **which means the donwload of original AWS S3 is not resumable**.
+
+ResumableS3 (rs3) is a Python based download binary, of which is meant to be a resumable download program. It is also multi-threaded, which means you shall get similar download speed as the original AWS S3.
+
 
 ## Installation
 Use pip to install, <mark> you should have python >= 3.8 installation first </mark>
@@ -30,6 +33,14 @@ Options:
   --help                 Show this message and exit.
 ```
 
+## Example
+```
+rs3 \
+-i s3://human-pangenomics/working/HPRC_PLUS/HG01109/assemblies/year1_freeze_assembly_v2/HG01109.maternal.f1_assembly_v2.fa.gz \
+-o ./output 
+```
+
+
 ## How to resume download
 When you use `rs3` to download file, you may encounter bad Internet connection for several chunck during AWS s3 download (such as the example below), but it is totally fine.
 ```
@@ -47,13 +58,9 @@ Downloading sectors: 100%|██████████████████
 ```
 File downloaded to ./HG02723/HG02723_3.fast5.tar.gz
 
+## Validation
 
-## Example
-```
-rs3 \
--i s3://human-pangenomics/working/HPRC_PLUS/HG01109/assemblies/year1_freeze_assembly_v2/HG01109.maternal.f1_assembly_v2.fa.gz \
--o ./output 
-```
+
 
 ## Citation
 Just cite this repositroy.
