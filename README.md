@@ -76,5 +76,5 @@ f2d8b690d0adeaf28ed3221514f30357  s3/HG01109.maternal.f1_assembly_v2.fa.gz
 
 
 ## Citation
-Just cite this repositroy.
+Just cite this repository.
 
