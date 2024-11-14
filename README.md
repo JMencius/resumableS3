@@ -52,14 +52,15 @@ Downloading sectors: 100%|██████████████████
 File downloaded to ./HG02723/HG02723_3.fast5.tar.gz
 ```
 
-After the first `rs3` command finished, just rerun it and `rs3` will try to redownload the missing part: 
+After the first `rs3` command finished, just rerun **the same rs3 command** and `rs3` will try to redownload the missing part: 
 ```
 Downloading sectors: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 201/201 [08:00<00:00,  2.39s/sector]
-```
 File downloaded to ./HG02723/HG02723_3.fast5.tar.gz
+```
+
 
 ## Validation
-`rs3` and `s3` is used to download the same file: `s3://human-pangenomics/working/HPRC_PLUS/HG01109/assemblies/year1_freeze_assembly_v2/HG01109.maternal.f1_assembly_v2.fa.gz` with the following command:
+`rs3` and `s3` are used to download the same file: `s3://human-pangenomics/working/HPRC_PLUS/HG01109/assemblies/year1_freeze_assembly_v2/HG01109.maternal.f1_assembly_v2.fa.gz` with the following command:
 ```bash
 # resumable S3
 rs3 -i s3://human-pangenomics/working/HPRC_PLUS/HG01109/assemblies/year1_freeze_assembly_v2/HG01109.maternal.f1_assembly_v2.fa.gz -o ./rs3;
